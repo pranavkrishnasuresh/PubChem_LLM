@@ -12,14 +12,14 @@ def query_chemistry_related(query_text: str):
     if not chemistry_terms:
         return "No chemistry-related terms found in the query."
 
-    print(f"Extracted Chemistry Terms: {chemistry_terms}")
+    # print(f"Extracted Chemistry Terms: {chemistry_terms}")
 
     # Step 2: Query PubChem for information on the terms
     pubchem_context = fetch_pubchem_data(chemistry_terms)
     if not pubchem_context:
         return "No relevant information found on PubChem."
 
-    print(f"Fetched Context from PubChem:\n{pubchem_context}")
+    # print(f"Fetched Context from PubChem:\n{pubchem_context}")
 
     # Step 3: Use the fetched context in the LLM
     response = generate_llm_response(pubchem_context, query_text)
